@@ -11,4 +11,4 @@ let game = new Phaser.Game({
 })
 
 
-console.log('poop')
+// console.log('poop')
