@@ -6,7 +6,7 @@ import {GameScene} from './scenes/GameScene'
 
 let game = new Phaser.Game({
   type: Phaser.AUTO,
-  width: 1200,
+  width: 1400,
   height: 1000,
   scene: [LoadScene,MenuScene,GameScene]
 })

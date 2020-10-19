@@ -13,12 +13,12 @@ export class MenuScene extends Phaser.Scene {
   preload(){}
   create(){
     this.startGameText = this.add
-    .text(this.game.renderer.width / 2, this.game.renderer.height * 0.55, ['Play'])
-    .setDepth(11)
+    .text(this.game.renderer.width / 2, this.game.renderer.height /2, ['Play'])
+    // .setDepth(11)
     .setFontSize(20)
     .setColor('#00ff22')
     .setInteractive()
-
+    
     this.startGameText.on(
       'pointerup',
       function () {
@@ -29,5 +29,12 @@ export class MenuScene extends Phaser.Scene {
       this
     );
 
+    this.optionsText = this.add.text(this.game.renderer.width/2, this.game.renderer.height/2 + 100, ['Options']).setFontSize(20).setColor("#00ff22").setInteractive()
+
+    this.optionsText.on('pointerup', function(){
+      // load options scene here
+      console.log('options clicked')
+    })
+    
   }
 }
