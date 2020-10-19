@@ -10,6 +10,8 @@ export class LoadScene extends Phaser.Scene {
   preload(){}
   create(){
     // this.scene.add(CONSTANTS.SCENES.MENU, MenuScene, false) DYNAMIC SCENE
+    
+
     this.scene.start(CONSTANTS.SCENES.MENU)
     // this.scene.launch() loads scene in parallel
   }
