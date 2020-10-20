@@ -8,12 +8,10 @@ let game = new Phaser.Game({
   type: Phaser.AUTO,
   width: 1400,
   height: 1000,
-  scene: [LoadScene,MenuScene,GameScene],
-  // physics: {
-  //   arcade: 'default',
- 
-  // }
+  scene: [
+    LoadScene, MenuScene, GameScene
+  ],
+  render: {
+    pixelArt: true
+  }
 })
-
-
-// console.log('poop')

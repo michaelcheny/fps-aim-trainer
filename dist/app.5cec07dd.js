@@ -124,7 +124,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.CONSTANTS = void 0;
-exports.CONSTANTS = {
+var CONSTANTS = {
   SCENES: {
     LOAD: "LOAD",
     MENU: "MENU",
@@ -136,89 +136,96 @@ exports.CONSTANTS = {
   AUDIO: {},
   SPRITE: {}
 };
+exports.CONSTANTS = CONSTANTS;
 },{}],"src/scenes/LoadScene.ts":[function(require,module,exports) {
 "use strict";
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.LoadScene = void 0; // @ts-ignore
+exports.LoadScene = void 0;
 
-var CONSTANTS_1 = require("../CONSTANTS");
+var _CONSTANTS = require("../CONSTANTS");
 
-var LoadScene =
-/** @class */
-function (_super) {
-  __extends(LoadScene, _super);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var LoadScene = /*#__PURE__*/function (_Phaser$Scene) {
+  _inherits(LoadScene, _Phaser$Scene);
+
+  var _super = _createSuper(LoadScene);
 
   function LoadScene() {
+    _classCallCheck(this, LoadScene);
+
     return _super.call(this, {
-      key: CONSTANTS_1.CONSTANTS.SCENES.LOAD
-    }) || this;
+      key: _CONSTANTS.CONSTANTS.SCENES.LOAD
+    });
   }
 
-  LoadScene.prototype.init = function () {};
+  _createClass(LoadScene, [{
+    key: "init",
+    value: function init() {}
+  }, {
+    key: "loadImages",
+    value: function loadImages() {
+      this.load.setPath('./assets/image');
 
-  LoadScene.prototype.loadImages = function () {
-    this.load.setPath('./assets/image');
-
-    for (var prop in CONSTANTS_1.CONSTANTS.IMAGE) {
-      this.load.image(CONSTANTS_1.CONSTANTS.IMAGE[prop], CONSTANTS_1.CONSTANTS.IMAGE[prop]);
+      for (var prop in _CONSTANTS.CONSTANTS.IMAGE) {
+        this.load.image(_CONSTANTS.CONSTANTS.IMAGE[prop], _CONSTANTS.CONSTANTS.IMAGE[prop]);
+      }
     }
-  };
+  }, {
+    key: "loadAudio",
+    value: function loadAudio() {
+      this.load.setPath('./assets/audio');
 
-  LoadScene.prototype.loadAudio = function () {
-    this.load.setPath('./assets/audio');
-
-    for (var prop in CONSTANTS_1.CONSTANTS.AUDIO) {
-      this.load.audio(CONSTANTS_1.CONSTANTS.AUDIO[prop], CONSTANTS_1.CONSTANTS.AUDIO[prop]);
+      for (var prop in _CONSTANTS.CONSTANTS.AUDIO) {
+        this.load.audio(_CONSTANTS.CONSTANTS.AUDIO[prop], _CONSTANTS.CONSTANTS.AUDIO[prop]);
+      }
     }
-  };
+  }, {
+    key: "loadSprites",
+    value: function loadSprites(frameConfig) {
+      this.load.setPath('./assets/sprite');
 
-  LoadScene.prototype.loadSprites = function (frameConfig) {
-    this.load.setPath('./assets/sprite');
-
-    for (var prop in CONSTANTS_1.CONSTANTS.SPRITE) {
-      this.load.spritesheet(CONSTANTS_1.CONSTANTS.SPRITE[prop], CONSTANTS_1.CONSTANTS.SPRITE[prop], frameConfig);
+      for (var prop in _CONSTANTS.CONSTANTS.SPRITE) {
+        this.load.spritesheet(_CONSTANTS.CONSTANTS.SPRITE[prop], _CONSTANTS.CONSTANTS.SPRITE[prop], frameConfig);
+      }
     }
-  };
-
-  LoadScene.prototype.preload = function () {
-    this.loadAudio();
-    this.loadImages();
-    this.loadSprites();
-  };
-
-  LoadScene.prototype.create = function () {
-    // this.scene.add(CONSTANTS.SCENES.MENU, MenuScene, false) DYNAMIC SCENE
-    this.scene.start(CONSTANTS_1.CONSTANTS.SCENES.MENU); // this.scene.launch() loads scene in parallel
-  };
+  }, {
+    key: "preload",
+    value: function preload() {
+      this.loadAudio();
+      this.loadImages();
+      this.loadSprites();
+    }
+  }, {
+    key: "create",
+    value: function create() {
+      // this.scene.add(CONSTANTS.SCENES.MENU, MenuScene, false) DYNAMIC SCENE
+      this.scene.start(_CONSTANTS.CONSTANTS.SCENES.MENU); // this.scene.launch() loads scene in parallel
+    }
+  }]);
 
   return LoadScene;
 }(Phaser.Scene);
@@ -227,84 +234,85 @@ exports.LoadScene = LoadScene;
 },{"../CONSTANTS":"src/CONSTANTS.ts"}],"src/scenes/MenuScene.ts":[function(require,module,exports) {
 "use strict";
 
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MenuScene = void 0; // @ts-ignore
+exports.MenuScene = void 0;
 
-var CONSTANTS_1 = require("../CONSTANTS");
+var _CONSTANTS = require("../CONSTANTS");
 
-var MenuScene =
-/** @class */
-function (_super) {
-  __extends(MenuScene, _super);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var MenuScene = /*#__PURE__*/function (_Phaser$Scene) {
+  _inherits(MenuScene, _Phaser$Scene);
+
+  var _super = _createSuper(MenuScene);
 
   function MenuScene() {
+    _classCallCheck(this, MenuScene);
+
     return _super.call(this, {
-      key: CONSTANTS_1.CONSTANTS.SCENES.MENU
-    }) || this;
+      key: _CONSTANTS.CONSTANTS.SCENES.MENU
+    });
   } // init(){
   // }
   // preload(){}
 
 
-  MenuScene.prototype.create = function () {
-    var _this = this;
+  _createClass(MenuScene, [{
+    key: "create",
+    value: function create() {
+      var _this = this;
 
-    var startButton = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2, ['Play']) // .setDepth(11)
-    .setFontSize(25).setColor('#00ff22').setInteractive();
-    var crosshair = this.add.image(this.game.renderer.width / 2 - 80, this.game.renderer.height / 2 - 10, CONSTANTS_1.CONSTANTS.IMAGE.CROSSHAIR).setScale(.2).setOrigin(0).setVisible(false);
-    startButton.on('pointerover', function () {
-      crosshair.setVisible(true);
-      crosshair.x = startButton.x - 69;
-      crosshair.y = startButton.y - 10;
-    });
-    startButton.on('pointerout', function () {
-      crosshair.setVisible(false);
-    });
-    startButton.on('pointerup', function () {
-      _this.scene.start(CONSTANTS_1.CONSTANTS.SCENES.GAME);
-    }, this);
-    var optionsButton = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive();
-    optionsButton.on('pointerover', function () {
-      crosshair.setVisible(true);
-      crosshair.x = optionsButton.x - 69;
-      crosshair.y = optionsButton.y - 10;
-    });
-    optionsButton.on('pointerout', function () {
-      crosshair.setVisible(false);
-    });
-    optionsButton.on('pointerup', function () {
-      // load options scene here
-      console.log('options clicked');
-    });
-  };
+      var startButton = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2, ['Play']) // .setDepth(11)
+      .setFontSize(25).setColor('#00ff22').setInteractive();
+      var crosshair = this.add.image(this.game.renderer.width / 2 - 80, this.game.renderer.height / 2 - 10, _CONSTANTS.CONSTANTS.IMAGE.CROSSHAIR).setScale(.2).setOrigin(0).setVisible(false);
+      startButton.on('pointerover', function () {
+        crosshair.setVisible(true);
+        crosshair.x = startButton.x - 69;
+        crosshair.y = startButton.y - 10;
+      });
+      startButton.on('pointerout', function () {
+        crosshair.setVisible(false);
+      });
+      startButton.on('pointerup', function () {
+        _this.scene.start(_CONSTANTS.CONSTANTS.SCENES.GAME);
+      });
+      var optionsButton = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive();
+      optionsButton.on('pointerover', function () {
+        crosshair.setVisible(true);
+        crosshair.x = optionsButton.x - 69;
+        crosshair.y = optionsButton.y - 10;
+      });
+      optionsButton.on('pointerout', function () {
+        crosshair.setVisible(false);
+      });
+      optionsButton.on('pointerup', function () {
+        // load options scene here
+        console.log('options clicked');
+      });
+    }
+  }]);
 
   return MenuScene;
 }(Phaser.Scene);
@@ -313,82 +321,83 @@ exports.MenuScene = MenuScene;
 },{"../CONSTANTS":"src/CONSTANTS.ts"}],"src/scenes/GameScene.ts":[function(require,module,exports) {
 "use strict";
 
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GameScene = void 0; // @ts-ignore
+exports.GameScene = void 0;
 
-var CONSTANTS_1 = require("../CONSTANTS");
+var _CONSTANTS = require("../CONSTANTS");
 
-var GameScene =
-/** @class */
-function (_super) {
-  __extends(GameScene, _super);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var GameScene = /*#__PURE__*/function (_Phaser$Scene) {
+  _inherits(GameScene, _Phaser$Scene);
+
+  var _super = _createSuper(GameScene);
 
   function GameScene() {
+    _classCallCheck(this, GameScene);
+
     return _super.call(this, {
-      key: CONSTANTS_1.CONSTANTS.SCENES.GAME
-    }) || this;
+      key: _CONSTANTS.CONSTANTS.SCENES.GAME
+    });
   }
 
-  GameScene.prototype.create = function () {
-    //  Set the camera and physics bounds to be the size of 4x4 bg images
-    this.cameras.main.setBounds(0, 0, 1920 * 2, 1080 * 2); // this.game.physics.world.setBounds(0, 0, 1920 * 2, 1080 * 2);
+  _createClass(GameScene, [{
+    key: "create",
+    value: function create() {
+      //  Set the camera and physics bounds to be the size of 4x4 bg images
+      this.cameras.main.setBounds(0, 0, 1920 * 2, 1080 * 2); // this.game.physics.world.setBounds(0, 0, 1920 * 2, 1080 * 2);
 
-    this.crosshair;
-    Phaser.GameObjects.Image = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, CONSTANTS_1.CONSTANTS.IMAGE.CROSSHAIR).setScale(.2).setInteractive(); // Pointer lock will only work after an 'engagement gesture', e.g. mousedown, keypress, etc.
+      this.crosshair;
+      Phaser.GameObjects.Image = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, _CONSTANTS.CONSTANTS.IMAGE.CROSSHAIR).setScale(.2).setInteractive(); // Pointer lock will only work after an 'engagement gesture', e.g. mousedown, keypress, etc.
 
-    this.input.on('pointerdown', function (pointer) {
-      this.input.mouse.requestPointerLock();
-    }, this); // When locked, you will have to use the movementX and movementY properties of the pointer
-    // (since a locked cursor's xy position does not update)
+      this.input.on('pointerdown', function (pointer) {
+        this.input.mouse.requestPointerLock();
+      }, this); // When locked, you will have to use the movementX and movementY properties of the pointer
+      // (since a locked cursor's xy position does not update)
 
-    this.input.on('pointermove', function (pointer) {
-      if (this.input.mouse.locked) {
-        this.crosshair.x += pointer.movementX;
-        this.crosshair.y += pointer.movementY; // Force the sprite to stay on screen
-        // this.crosshair.x = Phaser.Math.Wrap(this.crosshair.x, 0, this.game.renderer.width);
-        // this.crosshair.y = Phaser.Math.Wrap(this.crosshair.y, 0, this.game.renderer.height);
-        // if (pointer.movementX > 0) { this.crosshair.setRotation(0.1); }
-        // else if (pointer.movementX < 0) { this.crosshair.setRotation(-0.1); }
-        // else { this.crosshair.setRotation(0); }
-        // updateLockText(true);
-      }
-    }, this); // Exit pointer lock when Q is pressed. Browsers will also exit pointer lock when escape is
-    // pressed.
+      this.input.on('pointermove', function (pointer) {
+        if (this.input.mouse.locked) {
+          this.crosshair.x += pointer.movementX;
+          this.crosshair.y += pointer.movementY; // Force the sprite to stay on screen
+          // this.crosshair.x = Phaser.Math.Wrap(this.crosshair.x, 0, this.game.renderer.width);
+          // this.crosshair.y = Phaser.Math.Wrap(this.crosshair.y, 0, this.game.renderer.height);
+          // if (pointer.movementX > 0) { this.crosshair.setRotation(0.1); }
+          // else if (pointer.movementX < 0) { this.crosshair.setRotation(-0.1); }
+          // else { this.crosshair.setRotation(0); }
+          // updateLockText(true);
+        }
+      }, this); // Exit pointer lock when Q is pressed. Browsers will also exit pointer lock when escape is
+      // pressed.
 
-    this.input.keyboard.on('keydown-Q', function (event) {
-      if (this.input.mouse.locked) {
-        this.input.mouse.releasePointerLock();
-      }
-    }, this);
-  };
+      this.input.keyboard.on('keydown-Q', function (event) {
+        if (this.input.mouse.locked) {
+          this.input.mouse.releasePointerLock();
+        }
+      }, this);
+    }
+  }]);
 
   return GameScene;
 }(Phaser.Scene);
@@ -396,24 +405,23 @@ function (_super) {
 exports.GameScene = GameScene;
 },{"../CONSTANTS":"src/CONSTANTS.ts"}],"src/app.ts":[function(require,module,exports) {
 "use strict";
+
+var _LoadScene = require("./scenes/LoadScene");
+
+var _MenuScene = require("./scenes/MenuScene");
+
+var _GameScene = require("./scenes/GameScene");
+
 /** @type {import(../typings/phaser)} */
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var LoadScene_1 = require("./scenes/LoadScene");
-
-var MenuScene_1 = require("./scenes/MenuScene");
-
-var GameScene_1 = require("./scenes/GameScene");
-
 var game = new Phaser.Game({
   type: Phaser.AUTO,
   width: 1400,
   height: 1000,
-  scene: [LoadScene_1.LoadScene, MenuScene_1.MenuScene, GameScene_1.GameScene]
-}); // console.log('poop')
+  scene: [_LoadScene.LoadScene, _MenuScene.MenuScene, _GameScene.GameScene],
+  render: {
+    pixelArt: true
+  }
+});
 },{"./scenes/LoadScene":"src/scenes/LoadScene.ts","./scenes/MenuScene":"src/scenes/MenuScene.ts","./scenes/GameScene":"src/scenes/GameScene.ts"}],"../../../.nvm/versions/node/v14.3.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

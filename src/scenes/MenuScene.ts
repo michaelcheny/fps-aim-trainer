@@ -30,13 +30,9 @@ export class MenuScene extends Phaser.Scene {
       crosshair.setVisible(false)
     })
     
-    startButton.on(
-      'pointerup',
-       () => {
-        this.scene.start(CONSTANTS.SCENES.GAME);
-      },
-      this
-    );
+    startButton.on('pointerup', () => {
+      this.scene.start(CONSTANTS.SCENES.GAME)
+    });
 
     let optionsButton: Phaser.GameObjects.Text = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive()
     
