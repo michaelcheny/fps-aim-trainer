@@ -282,14 +282,25 @@ function (_super) {
     var crosshair = this.add.image(this.game.renderer.width / 2 - 80, this.game.renderer.height / 2 - 10, CONSTANTS_1.CONSTANTS.IMAGE.CROSSHAIR).setScale(.2).setOrigin(0).setVisible(false);
     startButton.on('pointerover', function () {
       crosshair.setVisible(true);
-      crosshair.x = startButton.x - startButton.width;
+      crosshair.x = startButton.x - 69;
       crosshair.y = startButton.y - 10;
+    });
+    startButton.on('pointerout', function () {
+      crosshair.setVisible(false);
     });
     startButton.on('pointerup', function () {
       _this.scene.start(CONSTANTS_1.CONSTANTS.SCENES.GAME);
     }, this);
-    var optionsText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive();
-    optionsText.on('pointerup', function () {
+    var optionsButton = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive();
+    optionsButton.on('pointerover', function () {
+      crosshair.setVisible(true);
+      crosshair.x = optionsButton.x - 69;
+      crosshair.y = optionsButton.y - 10;
+    });
+    optionsButton.on('pointerout', function () {
+      crosshair.setVisible(false);
+    });
+    optionsButton.on('pointerup', function () {
       // load options scene here
       console.log('options clicked');
     });
