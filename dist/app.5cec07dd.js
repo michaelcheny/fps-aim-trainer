@@ -201,15 +201,19 @@ function (_super) {
     }
   };
 
-  LoadScene.prototype.loadSprites = function () {
+  LoadScene.prototype.loadSprites = function (frameConfig) {
     this.load.setPath('./assets/sprite');
 
     for (var prop in CONSTANTS_1.CONSTANTS.SPRITE) {
-      this.load.spritesheet(CONSTANTS_1.CONSTANTS.SPRITE[prop], CONSTANTS_1.CONSTANTS.SPRITE[prop]);
+      this.load.spritesheet(CONSTANTS_1.CONSTANTS.SPRITE[prop], CONSTANTS_1.CONSTANTS.SPRITE[prop], frameConfig);
     }
   };
 
-  LoadScene.prototype.preload = function () {};
+  LoadScene.prototype.preload = function () {
+    this.loadAudio();
+    this.loadImages();
+    this.loadSprites();
+  };
 
   LoadScene.prototype.create = function () {
     // this.scene.add(CONSTANTS.SCENES.MENU, MenuScene, false) DYNAMIC SCENE
@@ -252,7 +256,7 @@ var __extends = this && this.__extends || function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MenuScene = void 0;
+exports.MenuScene = void 0; // @ts-ignore
 
 var CONSTANTS_1 = require("../CONSTANTS");
 
@@ -273,12 +277,12 @@ function (_super) {
 
   MenuScene.prototype.create = function () {
     this.startGameText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2, ['Play']) // .setDepth(11)
-    .setFontSize(20).setColor('#00ff22').setInteractive();
+    .setFontSize(25).setColor('#00ff22').setInteractive();
     this.startGameText.on('pointerup', function () {
       this.scene.start(CONSTANTS_1.CONSTANTS.SCENES.GAME); // this.startGameText.destroy();
       // this.startGameText.visible = false;
     }, this);
-    this.optionsText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(20).setColor("#00ff22").setInteractive();
+    this.optionsText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive();
     this.optionsText.on('pointerup', function () {
       // load options scene here
       console.log('options clicked');
@@ -321,7 +325,7 @@ var __extends = this && this.__extends || function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GameScene = void 0;
+exports.GameScene = void 0; // @ts-ignore
 
 var CONSTANTS_1 = require("../CONSTANTS");
 

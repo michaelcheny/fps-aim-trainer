@@ -1,3 +1,4 @@
+// @ts-ignore
 import {CONSTANTS} from '../CONSTANTS'
 
 export class MenuScene extends Phaser.Scene {
@@ -13,7 +14,7 @@ export class MenuScene extends Phaser.Scene {
     this.startGameText = this.add
     .text(this.game.renderer.width / 2, this.game.renderer.height /2, ['Play'])
     // .setDepth(11)
-    .setFontSize(20)
+    .setFontSize(25)
     .setColor('#00ff22')
     .setInteractive()
     
@@ -27,7 +28,7 @@ export class MenuScene extends Phaser.Scene {
       this
     );
 
-    this.optionsText = this.add.text(this.game.renderer.width/2, this.game.renderer.height/2 + 100, ['Options']).setFontSize(20).setColor("#00ff22").setInteractive()
+    this.optionsText = this.add.text(this.game.renderer.width/2, this.game.renderer.height/2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive()
 
     this.optionsText.on('pointerup', function(){
       // load options scene here

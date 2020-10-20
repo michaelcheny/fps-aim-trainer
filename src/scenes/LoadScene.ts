@@ -26,15 +26,19 @@ export class LoadScene extends Phaser.Scene {
     }
   }
   
-  loadSprites() {
+  loadSprites(frameConfig?: Phaser.Types.Loader.FileTypes.ImageFrameConfig) {
     this.load.setPath('./assets/sprite')
 
     for (let prop in CONSTANTS.SPRITE) {
-      this.load.spritesheet(CONSTANTS.SPRITE[prop], CONSTANTS.SPRITE[prop])
+      this.load.spritesheet(CONSTANTS.SPRITE[prop], CONSTANTS.SPRITE[prop], frameConfig)
     }
   }
 
-  preload(){}
+  preload() {
+    this.loadAudio()
+    this.loadImages()
+    this.loadSprites()
+  }
   create(){
     // this.scene.add(CONSTANTS.SCENES.MENU, MenuScene, false) DYNAMIC SCENE
     

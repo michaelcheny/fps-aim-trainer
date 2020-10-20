@@ -1,3 +1,4 @@
+// @ts-ignore
 import {CONSTANTS} from '../CONSTANTS'
 
 export class GameScene extends Phaser.Scene {
