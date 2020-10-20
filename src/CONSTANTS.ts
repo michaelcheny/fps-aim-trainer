@@ -4,9 +4,10 @@ export const CONSTANTS = {
     MENU: "MENU",
     GAME: "GAME"
   },
-  IMAGE: {},
+  IMAGE: {
+    CROSSHAIR: 'crosshair.png'
+  },
   AUDIO:{},
   SPRITE: {
-    CROSSHAIR: 'crosshair.png'
   }
 }

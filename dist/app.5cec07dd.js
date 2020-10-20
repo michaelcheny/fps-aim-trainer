@@ -130,11 +130,11 @@ exports.CONSTANTS = {
     MENU: "MENU",
     GAME: "GAME"
   },
-  IMAGE: {},
-  AUDIO: {},
-  SPRITE: {
+  IMAGE: {
     CROSSHAIR: 'crosshair.png'
-  }
+  },
+  AUDIO: {},
+  SPRITE: {}
 };
 },{}],"src/scenes/LoadScene.ts":[function(require,module,exports) {
 "use strict";
@@ -269,18 +269,20 @@ function (_super) {
     return _super.call(this, {
       key: CONSTANTS_1.CONSTANTS.SCENES.MENU
     }) || this;
-  }
+  } // init(){
+  // }
+  // preload(){}
 
-  MenuScene.prototype.init = function () {};
-
-  MenuScene.prototype.preload = function () {};
 
   MenuScene.prototype.create = function () {
-    this.startGameText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2, ['Play']) // .setDepth(11)
+    var _this = this;
+
+    var startGameText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2, ['Play']) // .setDepth(11)
     .setFontSize(25).setColor('#00ff22').setInteractive();
-    this.startGameText.on('pointerup', function () {
-      this.scene.start(CONSTANTS_1.CONSTANTS.SCENES.GAME); // this.startGameText.destroy();
+    startGameText.on('pointerup', function () {
+      _this.scene.start(CONSTANTS_1.CONSTANTS.SCENES.GAME); // this.startGameText.destroy();
       // this.startGameText.visible = false;
+
     }, this);
     this.optionsText = this.add.text(this.game.renderer.width / 2, this.game.renderer.height / 2 + 100, ['Options']).setFontSize(25).setColor("#00ff22").setInteractive();
     this.optionsText.on('pointerup', function () {
@@ -338,21 +340,14 @@ function (_super) {
     return _super.call(this, {
       key: CONSTANTS_1.CONSTANTS.SCENES.GAME
     }) || this;
-  } // init(data){
-  //   console.log(data)
-  //   console.log("pooper")
-  // }
-
-
-  GameScene.prototype.preload = function () {
-    this.load.image('crosshair', '../assets/crosshair.png');
-  };
+  }
 
   GameScene.prototype.create = function () {
     //  Set the camera and physics bounds to be the size of 4x4 bg images
     this.cameras.main.setBounds(0, 0, 1920 * 2, 1080 * 2); // this.game.physics.world.setBounds(0, 0, 1920 * 2, 1080 * 2);
 
-    this.crosshair = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, 'crosshair').setScale(.2).setInteractive(); // Pointer lock will only work after an 'engagement gesture', e.g. mousedown, keypress, etc.
+    this.crosshair;
+    Phaser.GameObjects.Image = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, CONSTANTS_1.CONSTANTS.IMAGE.CROSSHAIR).setScale(.2).setInteractive(); // Pointer lock will only work after an 'engagement gesture', e.g. mousedown, keypress, etc.
 
     this.input.on('pointerdown', function (pointer) {
       this.input.mouse.requestPointerLock();
