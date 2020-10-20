@@ -328,13 +328,10 @@ var GameScene = /*#__PURE__*/function (_Phaser$Scene) {
   }, {
     key: "create",
     value: function create() {
-      // this.startGameText = this.add
-      // .text(this.game.renderer.width / 2, this.game.renderer.height * 0.55, ['TEST'])
-      // .setDepth(11)
-      // .setFontSize(20)
-      // .setColor('#00ff22')
-      // .setInteractive()
-      this.crosshair = this.add.sprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 'crosshair').setScale(.2); // Pointer lock will only work after an 'engagement gesture', e.g. mousedown, keypress, etc.
+      //  Set the camera and physics bounds to be the size of 4x4 bg images
+      this.cameras.main.setBounds(0, 0, 1920 * 2, 1080 * 2); // this.game.physics.world.setBounds(0, 0, 1920 * 2, 1080 * 2);
+
+      this.crosshair = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, 'crosshair').setScale(.2).setInteractive(); // Pointer lock will only work after an 'engagement gesture', e.g. mousedown, keypress, etc.
 
       this.input.on('pointerdown', function (pointer) {
         this.input.mouse.requestPointerLock();
@@ -376,12 +373,18 @@ var _MenuScene = require("./scenes/MenuScene");
 
 var _GameScene = require("./scenes/GameScene");
 
-/** @type {import(../typings/phaser)} */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var game = new Phaser.Game({
   type: Phaser.AUTO,
   width: 1400,
   height: 1000,
-  scene: [_LoadScene.LoadScene, _MenuScene.MenuScene, _GameScene.GameScene]
+  scene: [_LoadScene.LoadScene, _MenuScene.MenuScene, _GameScene.GameScene],
+  physics: _defineProperty({
+    arcade: 'default'
+  }, "arcade", {
+    debug: true
+  })
 }); // console.log('poop')
 },{"./scenes/LoadScene":"src/scenes/LoadScene.js","./scenes/MenuScene":"src/scenes/MenuScene.js","./scenes/GameScene":"src/scenes/GameScene.js"}],"../../../.nvm/versions/node/v14.3.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
